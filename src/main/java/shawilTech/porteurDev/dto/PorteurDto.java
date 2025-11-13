@@ -1,5 +1,10 @@
+package shawilTech.porteurDev.dto;
 
-public  interface PorteurDto {
+import lombok.Data;
+
+
+@Data
+public  class PorteurDto {
 
     private Long id;
     private String nom;

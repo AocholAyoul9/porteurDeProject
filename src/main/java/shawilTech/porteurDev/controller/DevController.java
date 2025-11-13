@@ -1,17 +1,22 @@
-package shawiltech.com.porteurdev.controller;
-import shawiltech.com.porteurdev.entity.*;
-import shawiltech.com.porteurdev.dto.ProjectDto;
-import shawiltech.com.porteurdev.service.ProjectService;
+package shawilTech.porteurDev.controller;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import shawilTech.porteurDev.dto.*;
+import shawilTech.porteurDev.entity.*;
+import shawilTech.porteurDev.service.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+import shawilTech.porteurDev.service.DevService;
 
 @RestController
-@ResquestMapping("/api/devs")
+@RequestMapping("/api/devs")
 @RequiredArgsConstructor
-
 public class DevController {
 
-    private  final  DevService  devService;
+    private final DevService devService;
+
     @PostMapping
     public  DevDto create(@RequestBody DevDto dev){
         return devService.create(dev);

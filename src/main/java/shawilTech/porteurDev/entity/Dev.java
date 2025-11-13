@@ -1,4 +1,4 @@
-package shawiltech.com.porteurdev.entity;
+package shawilTech.porteurDev.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

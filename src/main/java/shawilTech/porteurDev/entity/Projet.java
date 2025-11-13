@@ -1,7 +1,7 @@
-package shawiltech.com.porteurdev.entity;
+package shawilTech.porteurDev.entity;
 
 import jakarta.persistence.*;
-import  * lombok
+import lombok.*;
 import java.time.LocalDate;
 import java.util.List;
 

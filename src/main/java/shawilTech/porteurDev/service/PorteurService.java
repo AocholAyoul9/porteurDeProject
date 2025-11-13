@@ -1,9 +1,10 @@
-package shawiltech.com.porteurdev.service;
+package shawilTech.porteurDev.service;
 
-import shawiltech.com.porteurdev.entity.Porteur;
-import shawiltech.com.porteurdev.dto.PorteurDto;
+import shawilTech.porteurDev.dto.PorteurDto;
+import shawilTech.porteurDev.entity.Porteur;
 
-import shawiltech.com.porteurdev.repository.PorteurRepository;
+
+import shawilTech.porteurDev.repository.PorteurRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public  class PorteurService {
 
-    private  final  PorteurRepository repository;
+    private  final shawiltech.com.porteurdev.repository.PorteurRepository repository;
 
-    public  PorteurDto createPorteur(PorteurDto p){
+    public PorteurDto createPorteur(PorteurDto p){
         return  repository.save(p);
     }
 

@@ -1,12 +1,13 @@
-package shawiltech.com.porteurdev.controller;
-import shawiltech.com.porteurdev.entity.Porteur;
-import shawiltech.com.porteurdev.dto.PorteurDto;
-import shawiltech.com.porteurdev.service.PorteurService;
+package shawilTech.porteurDev.controller;
+import shawilTech.porteurDev.dto.PorteurDto;
+import shawilTech.porteurDev.service.PorteurService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @RestController
-@ResquestMapping("/api/porteurs")
+@RequestMapping("/api/porteurs")
 @RequiredArgsConstructor
 
 public class PorteurController {
@@ -14,7 +15,7 @@ public class PorteurController {
     private  final PorteurService porteurService;
 
     @PostMapping
-    public  PorteurDto create(@RequestBody PorteurDto porteurDto){
+    public PorteurDto create(@RequestBody PorteurDto porteurDto){
         return  porteurService.createPorteur(porteurDto);
     }
 }
