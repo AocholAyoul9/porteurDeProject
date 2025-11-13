@@ -1,37 +1,41 @@
 package shawilTech.porteurDev.service;
 
 import shawilTech.porteurDev.dto.*;
-
+import shawilTech.porteurDev.entity.*;
 import shawilTech.porteurDev.repository.*;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import shawilTech.porteurDev.repository.DevRepository;
 
 import  java.time.LocalDate;
 
 @Service
-@RequiredArgsConstructor
 public  class DevService {
 
     private final DevRepository devRepository;
 
     private  final ProjectRepository projectRepository;
-    private  final shawiltech.com.porteurdev.repository.CandidatureRepository candidatureRepository;
+    private  final CandidatureRepository candidatureRepository;
+
+    public DevService(DevRepository devRepository, ProjectRepository projectRepository, CandidatureRepository candidatureRepository) {
+        this.devRepository = devRepository;
+        this.projectRepository = projectRepository;
+        this.candidatureRepository = candidatureRepository;
+    }
 
 
-    public  DevDto create(DevDto devDto){
+    public  Dev create(Dev devDto){
         return  devRepository.save(devDto);
     }
 
-    public  CandidtureDto applyToProject(Long devId, Long projectId){
+    public  Candidature applyToProject(Long devId, Long projectId){
 
-        shawiltech.com.porteurdev.entity.Dev dev = devRepository.findById(devId).orElseThrow(()-> new runtimeException("Dev not found"));
+        Dev dev = devRepository.findById(devId).orElseThrow(()-> new RuntimeException("Dev not found"));
 
-        Project project = projectRepository.findById(projectId).orElseThrow(()-> new runtimeException("Project not found"));
+        Projet project = projectRepository.findById(projectId).orElseThrow(()-> new RuntimeException("Project not found"));
 
-        shawiltech.com.porteurdev.entity.Candidature candidature = Candidature.builder()
+        Candidature candidature = Candidature.builder()
                 .dev(dev)
-                .project(project)
+                .projet(project)
                 .dateCandidature(LocalDate.now())
                 .statut("En_ATTENTE")
                 .build();

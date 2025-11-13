@@ -2,11 +2,8 @@ package shawilTech.porteurDev.service;
 
 import  shawilTech.porteurDev.dto.*;
 
-import  shawilTech.porteurDev.entity.*;
 import  shawilTech.porteurDev.dto.PorteurDto;
 
-import  shawilTech.porteurDev.repository.*;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import shawilTech.porteurDev.repository.CandidatureRepository;
 import shawilTech.porteurDev.repository.DevRepository;
@@ -17,13 +14,19 @@ import  java.util.List;
 
 
 @Service
-@RequiredArgsConstructor
-public  class projectService {
+public  class ProjectService {
 
     private  final ProjectRepository projectRepository;
     private  final PorteurRepository porteurRepository;
     private  final CandidatureRepository candidatureRepository;
     private  final DevRepository devRepository;
+
+    public ProjectService(ProjectRepository projectRepository, PorteurRepository porteurRepository, CandidatureRepository candidatureRepository, DevRepository devRepository) {
+        this.projectRepository = projectRepository;
+        this.porteurRepository = porteurRepository;
+        this.candidatureRepository = candidatureRepository;
+        this.devRepository = devRepository;
+    }
 
     public  ProjectDto createProject(Long porteurId, ProjectDto projectDto){
 

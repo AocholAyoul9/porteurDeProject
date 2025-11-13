@@ -1,12 +1,8 @@
 package shawilTech.porteurDev.controller;
 import shawilTech.porteurDev.dto.CandidatureDto;
 import shawilTech.porteurDev.dto.ProjectDto;
-import shawilTech.porteurDev.entity.*;
-import shawilTech.porteurDev.dto.CandidatureDto;
 import shawilTech.porteurDev.entity.Candidature;
-import shawilTech.porteurDev.dto.ProjectDto;
-import shawilTech.porteurDev.service.*;
-import lombok.RequiredArgsConstructor;
+import shawilTech.porteurDev.service.ProjectService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,10 +10,13 @@ import  java.util.List;
 
 @RestController
 @RequestMapping("/api/projects")
-@RequiredArgsConstructor
 public  class ProjetController {
 
-    private final  ProjectService projectService;
+    final ProjectService projectService;
+
+    public ProjetController(ProjectService projectService) {
+        this.projectService = projectService;
+    }
 
     @PostMapping("/{porteurId}")
     public ProjectDto create(@PathVariable Long porteurId, @RequestBody ProjectDto project){
@@ -30,12 +29,12 @@ public  class ProjetController {
     }
 
     @PutMapping("/candidatures/{id}/accept")
-    public  CandidatureDto accept(@PathVarible Long id){
+    public  CandidatureDto accept(@PathVariable Long id){
         return  projectService.acceptCandidature(id);
     }
 
     @PutMapping("/candidatures/{id}/refuse")
     public Candidature refuse(@PathVariable Long id) {
-        return projectService.refuseCandidature(id);
+        return projectService.refusCandidature(id);
     }
 }

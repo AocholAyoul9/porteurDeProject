@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 @RequestMapping("/api/porteurs")
-@RequiredArgsConstructor
-
 public class PorteurController {
 
     private  final PorteurService porteurService;
+
+    public PorteurController(PorteurService porteurService) {
+        this.porteurService = porteurService;
+    }
 
     @PostMapping
     public PorteurDto create(@RequestBody PorteurDto porteurDto){

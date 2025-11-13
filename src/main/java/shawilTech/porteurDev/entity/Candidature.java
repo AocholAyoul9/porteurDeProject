@@ -1,7 +1,8 @@
 package shawilTech.porteurDev.entity;
+
 import lombok.*;
-import jakarta.persistence.*;
-import java.time.LocalDate;
+        import jakarta.persistence.*;
+        import java.time.LocalDate;
 
 @Entity
 @Data
@@ -9,9 +10,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class Candidature {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private LocalDate dateCandidature;
     private String statut;
 
@@ -23,3 +26,4 @@ public class Candidature {
     @JoinColumn(name = "projet_id")
     private Projet projet;
 }
+

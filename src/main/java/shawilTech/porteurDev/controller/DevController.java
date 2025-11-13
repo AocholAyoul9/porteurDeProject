@@ -12,13 +12,16 @@ import shawilTech.porteurDev.service.DevService;
 
 @RestController
 @RequestMapping("/api/devs")
-@RequiredArgsConstructor
 public class DevController {
 
     private final DevService devService;
 
+    public DevController(DevService devService) {
+        this.devService = devService;
+    }
+
     @PostMapping
-    public  DevDto create(@RequestBody DevDto dev){
+    public  Dev create(@RequestBody Dev dev){
         return devService.create(dev);
     }
 
