@@ -26,7 +26,7 @@ public class DevController {
     }
 
     @PostMapping("/{devId}/apply/{projectId}")
-    public  CandidatureDto apply(@PathVariable Long devId, @PathVariable Long projectId){
+    public  Candidature apply(@PathVariable Long devId, @PathVariable Long projectId){
         return  devService.applyToProject(devId, projectId);
     }
 }

@@ -1,8 +1,8 @@
 package shawilTech.porteurDev.service;
 
-import  shawilTech.porteurDev.dto.*;
+import shawilTech.porteurDev.dto.CandidatureDto;
+import  shawilTech.porteurDev.entity.*;
 
-import  shawilTech.porteurDev.dto.PorteurDto;
 
 import org.springframework.stereotype.Service;
 import shawilTech.porteurDev.repository.CandidatureRepository;
@@ -28,29 +28,32 @@ public  class ProjectService {
         this.devRepository = devRepository;
     }
 
-    public  ProjectDto createProject(Long porteurId, ProjectDto projectDto){
+    public  Projet createProject(Long porteurId, Projet project){
 
-        PorteurDto  porteur = porteurRepository.findById(porteurId)
+        Porteur  porteur = porteurRepository.findById(porteurId)
                 .orElseThrow(()-> new RuntimeException("Porteur not foud"));
-        projectDto.setPorteur(porteur);
 
-        return  projectRepository.save(projectDto);
+        project.setPorteur(porteur);
+
+        return  projectRepository.save(project);
     }
 
-    public  List<CandidatureDto> listCandidatures(Long projectId){
+    public  List<Candidature> listCandidatures(Long projectId){
         return  candidatureRepository.findByProjectId(projectId);
     }
 
-    public  CandidatureDto acceptCandidature(Long candidatureId){
-        CandidatureDto candidature = candidatureRepository.findBy(candidatureId)
+    
+
+    public  Candidature acceptCandidature(Long candidatureId){
+        Candidature candidature = candidatureRepository.findById(candidatureId)
                 .orElseThrow(()-> new RuntimeException("Candidature not found"));
         candidature.setStatut("ACCEPTEE");
 
         return  candidatureRepository.save(candidature);
     }
 
-    public  CandidatureDto refusCandidature(Long candidatureId){
-        CandidatureDto candidature = candidatureRepository.findBy(candidatureId)
+    public  Candidature refusCandidature(Long candidatureId){
+        Candidature candidature = candidatureRepository.findById(candidatureId)
                 .orElseThrow(()-> new RuntimeException("Candidature not found"));
         candidature.setStatut("REFUSEE");
 
