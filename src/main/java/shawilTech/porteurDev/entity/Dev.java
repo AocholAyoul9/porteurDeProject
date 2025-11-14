@@ -1,7 +1,10 @@
 package shawilTech.porteurDev.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -9,7 +12,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class Dev {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

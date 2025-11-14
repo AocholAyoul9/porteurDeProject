@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public  interface CandidatureRepository extends  JpaRepository<Candidature, Long> {
 
-    List<Candidature> findByProjectId(Long projectId);
+    List<Candidature> findByProjet_Id(Long projetId);
 }

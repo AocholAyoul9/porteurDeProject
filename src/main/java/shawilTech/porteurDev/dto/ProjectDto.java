@@ -1,15 +1,18 @@
 package shawilTech.porteurDev.dto;
-import java.time.LocalDate;
 
+import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
+@Builder
 public class ProjectDto {
+    private Long id;
     private String titre;
     private String description;
     private LocalDate dateLivraison;
-    private Double budget;
+    private double budget;
     private String thematique;
-    private LocalDate dateCreation;
     private String statut;
 }

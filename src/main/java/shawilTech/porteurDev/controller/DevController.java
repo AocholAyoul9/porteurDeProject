@@ -1,13 +1,9 @@
 package shawilTech.porteurDev.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.RequestMapping;
-import shawilTech.porteurDev.dto.*;
-import shawilTech.porteurDev.entity.*;
-import shawilTech.porteurDev.service.*;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import shawilTech.porteurDev.dto.CandidatureDto;
+import shawilTech.porteurDev.dto.DevDto;
+import shawilTech.porteurDev.entity.Dev;
 import shawilTech.porteurDev.service.DevService;
 
 @RestController
@@ -21,12 +17,12 @@ public class DevController {
     }
 
     @PostMapping
-    public  Dev create(@RequestBody Dev dev){
+    public DevDto create(@RequestBody Dev dev){
         return devService.create(dev);
     }
 
     @PostMapping("/{devId}/apply/{projectId}")
-    public  Candidature apply(@PathVariable Long devId, @PathVariable Long projectId){
-        return  devService.applyToProject(devId, projectId);
+    public CandidatureDto apply(@PathVariable Long devId, @PathVariable Long projectId){
+        return devService.applyToProject(devId, projectId);
     }
 }

@@ -1,6 +1,4 @@
 package shawilTech.porteurDev.service;
-
-import shawilTech.porteurDev.dto.CandidatureDto;
 import  shawilTech.porteurDev.entity.*;
 
 
@@ -39,7 +37,7 @@ public  class ProjectService {
     }
 
     public  List<Candidature> listCandidatures(Long projectId){
-        return  candidatureRepository.findByProjectId(projectId);
+        return  candidatureRepository.findByProjet_Id(projectId);
     }
 
     
